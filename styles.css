@@ -20,8 +20,11 @@ body {
 
 .planet-container {
     position: relative;
-    width: 220px;
-    height: 220px;
+    width: 260px; /* افزایش اندازه برای تنظیم بهتر حلقه */
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .planet {
@@ -36,12 +39,14 @@ body {
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     box-shadow: 0 0 30px rgba(0, 123, 255, 0.7);
     transition: transform 0.1s ease-out;
+
+    user-select: none;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    z-index: 2; /* برای قرارگیری روی حلقه */
 }
 
 .ring {
@@ -55,7 +60,8 @@ body {
     transform: translate(-50%, -50%) rotate(-15deg);
     opacity: 1;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-    transition: transform 0.1s ease-out;
+    transition: transform 0.2s ease-out;
+    z-index: 1; /* حلقه زیر سیاره قرار بگیرد */
 }
 
 .plus-one {
@@ -71,4 +77,30 @@ body {
 @keyframes moveUpFade {
     0% { transform: translateY(0); opacity: 1; }
     100% { transform: translateY(-40px); opacity: 0; }
-    }
+}
+
+/* دکمه Community */
+.community-box {
+    width: 320px;
+    height: 90px;
+    background: radial-gradient(circle, #000C1A, #001F3F, #002B5E);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(0, 123, 255, 0.7);
+    transition: transform 0.1s ease-out;
+    margin-top: 200px; /* مستطیل بیشتر پایین آورده شد */
+
+    user-select: none;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.community-box:active {
+    transform: scale(0.9);
+}

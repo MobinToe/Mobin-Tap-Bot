@@ -115,3 +115,32 @@ body {
 .community-box:active {
     transform: translateX(-50%) scale(0.9);
 }
+
+/* دکمه جدید برای کاهش ۱۰۰ کلیک */
+.square-box {
+    width: 320px;
+    height: 90px;
+    background: radial-gradient(circle, #000C1A, #001F3F, #002B5E);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(0, 123, 255, 0.7);
+    transition: transform 0.1s ease-out;
+    position: absolute;
+    top: 70%; /* دکمه زیر سیاره قرار می‌گیرد */
+    left: 50%;
+    transform: translateX(-50%);
+
+    user-select: none;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.square-box:active {
+    transform: translateX(-50%) scale(0.9);
+    }

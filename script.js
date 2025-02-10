@@ -4,6 +4,7 @@ const ring = document.getElementById("ring");
 const counter = document.getElementById("counter");
 const planetContainer = document.querySelector(".planet-container");
 const communityBox = document.getElementById("communityBox");
+const bonusButton = document.getElementById("bonusButton");
 
 function handlePress() {
     button.style.transform = "scale(0.9)";
@@ -20,9 +21,19 @@ function handleRelease() {
 }
 
 function handleClick(event) {
-    count++;
+    if (bonusButton.style.display === "block") {
+        count += 2; // اگر دکمه فعال باشد، هر کلیک ۲ بار اضافه می‌کند
+    } else {
+        count++; // در غیر این صورت، هر کلیک ۱ بار اضافه می‌کند
+    }
     counter.innerText = "Your MTC = " + count;
 
+    // نمایش دکمه پس از ۱۰۰ کلیک
+    if (count >= 100 && bonusButton.style.display === "none") {
+        bonusButton.style.display = "block";
+    }
+
+    // ایجاد افکت +1
     const plusOne = document.createElement("div");
     plusOne.classList.add("plus-one");
     plusOne.innerText = "+1";
@@ -37,6 +48,15 @@ function handleClick(event) {
         plusOne.remove();
     }, 1000);
 }
+
+// کاهش ۱۰۰ کلیک و فعال‌کردن حالت ۲x
+bonusButton.addEventListener("click", function() {
+    if (count >= 100) {
+        count -= 100; // ۱۰۰ کلیک کم می‌شود
+        counter.innerText = "Your MTC = " + count;
+        bonusButton.style.display = "none"; // دکمه مخفی می‌شود
+    }
+});
 
 // باز کردن لینک تلگرام هنگام کلیک روی دکمه
 communityBox.addEventListener("click", function() {

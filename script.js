@@ -1,21 +1,40 @@
 let count = 0;
-let button = document.getElementById("clickButton");
-let ring = document.getElementById("ring");
+const button = document.getElementById("clickButton");
+const ring = document.getElementById("ring");
+const counter = document.getElementById("counter");
+const planetContainer = document.querySelector(".planet-container");
 
-// رویداد کلیک (فشردن دکمه)
-button.addEventListener("mousedown", function() {
-    button.style.transform = "translate(-50%, -50%) scale(0.9)"; // کوچک شدن سیاره
-    ring.style.transform = "translate(-50%, -50%) rotate(-15deg) scale(0.9)"; // کوچک شدن حلقه
-});
+function handlePress() {
+    button.style.transform = "translate(-50%, -50%) scale(0.9)";
+    ring.style.transform = "translate(-50%, -50%) rotate(-15deg) scale(0.9)";
+}
 
-// رویداد رها کردن کلیک
-button.addEventListener("mouseup", function() {
-    button.style.transform = "translate(-50%, -50%) scale(1)"; // بازگشت به اندازه اصلی سیاره
-    ring.style.transform = "translate(-50%, -50%) rotate(-15deg) scale(1)"; // بازگشت به اندازه اصلی حلقه
-});
+function handleRelease() {
+    button.style.transform = "translate(-50%, -50%) scale(1)";
+    ring.style.transform = "translate(-50%, -50%) rotate(-15deg) scale(1)";
+}
 
-// افزایش شمارنده
-button.addEventListener("click", function() {
+function handleClick(event) {
     count++;
-    document.getElementById("counter").innerText = "MTC: " + count;
-});
+    counter.innerText = "MTC: " + count;
+
+    const plusOne = document.createElement("div");
+    plusOne.classList.add("plus-one");
+    plusOne.innerText = "+1";
+
+    const rect = button.getBoundingClientRect();
+    plusOne.style.left = `${event.clientX - rect.left}px`;
+    plusOne.style.top = `${event.clientY - rect.top}px`;
+
+    planetContainer.appendChild(plusOne);
+
+    setTimeout(() => {
+        plusOne.remove();
+    }, 1000);
+}
+
+button.addEventListener("mousedown", handlePress);
+button.addEventListener("mouseup", handleRelease);
+button.addEventListener("touchstart", handlePress);
+button.addEventListener("touchend", handleRelease);
+button.addEventListener("click", handleClick);

@@ -16,11 +16,18 @@ body {
     margin-bottom: 20px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     font-weight: bold;
+    position: absolute;
+    top: 10%; /* شمارنده کمی بالاتر از وسط */
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .planet-container {
-    position: relative;
-    width: 260px; /* افزایش اندازه برای تنظیم بهتر حلقه */
+    position: absolute;
+    top: 50%; /* سیاره و حلقه در وسط صفحه */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 260px;
     height: 260px;
     display: flex;
     align-items: center;
@@ -94,7 +101,10 @@ body {
     cursor: pointer;
     box-shadow: 0 0 30px rgba(0, 123, 255, 0.7);
     transition: transform 0.1s ease-out;
-    margin-top: 200px; /* مستطیل بیشتر پایین آورده شد */
+    position: absolute;
+    top: 80%; /* مستطیل پایین‌تر قرار می‌گیرد */
+    left: 50%;
+    transform: translateX(-50%);
 
     user-select: none;
     outline: none;
@@ -102,5 +112,5 @@ body {
 }
 
 .community-box:active {
-    transform: scale(0.9);
-}
+    transform: translateX(-50%) scale(0.9);
+    }

@@ -53,7 +53,7 @@ body {
     outline: none;
     -webkit-tap-highlight-color: transparent;
     position: relative;
-    z-index: 2; /* برای قرارگیری روی حلقه */
+    z-index: 1; /* سیاره زیر آیکون +1 قرار می‌گیرد */
 }
 
 .ring {
@@ -68,7 +68,7 @@ body {
     opacity: 1;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
     transition: transform 0.2s ease-out;
-    z-index: 1; /* حلقه زیر سیاره قرار بگیرد */
+    z-index: 0; /* حلقه زیر سیاره قرار می‌گیرد */
 }
 
 .plus-one {
@@ -79,6 +79,7 @@ body {
     opacity: 1;
     animation: moveUpFade 1s ease-out;
     pointer-events: none;
+    z-index: 2; /* آیکون +1 بالای سیاره قرار می‌گیرد */
 }
 
 @keyframes moveUpFade {
@@ -102,7 +103,7 @@ body {
     box-shadow: 0 0 30px rgba(0, 123, 255, 0.7);
     transition: transform 0.1s ease-out;
     position: absolute;
-    top: 80%; /* مستطیل پایین‌تر قرار می‌گیرد */
+    top: 90%; /* مستطیل پایین‌تر قرار می‌گیرد */
     left: 50%;
     transform: translateX(-50%);
 
@@ -113,4 +114,4 @@ body {
 
 .community-box:active {
     transform: translateX(-50%) scale(0.9);
-    }
+        }

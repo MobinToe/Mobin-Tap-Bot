@@ -3,20 +3,25 @@ const button = document.getElementById("clickButton");
 const ring = document.getElementById("ring");
 const counter = document.getElementById("counter");
 const planetContainer = document.querySelector(".planet-container");
+const communityBox = document.getElementById("communityBox");
 
 function handlePress() {
-    button.style.transform = "translate(-50%, -50%) scale(0.9)";
-    ring.style.transform = "translate(-50%, -50%) rotate(-15deg) scale(0.9)";
+    button.style.transform = "scale(0.9)";
+    setTimeout(() => {
+        ring.style.transform = "translate(-50%, -50%) rotate(-15deg) scale(0.9)";
+    }, 50); // حلقه کمی دیرتر کوچک می‌شود
 }
 
 function handleRelease() {
-    button.style.transform = "translate(-50%, -50%) scale(1)";
-    ring.style.transform = "translate(-50%, -50%) rotate(-15deg) scale(1)";
+    button.style.transform = "scale(1)";
+    setTimeout(() => {
+        ring.style.transform = "translate(-50%, -50%) rotate(-15deg) scale(1)";
+    }, 50); // حلقه کمی دیرتر به حالت اولیه برمی‌گردد
 }
 
 function handleClick(event) {
     count++;
-    counter.innerText = "MTC: " + count;
+    counter.innerText = "Your MTC = " + count;
 
     const plusOne = document.createElement("div");
     plusOne.classList.add("plus-one");
@@ -32,6 +37,11 @@ function handleClick(event) {
         plusOne.remove();
     }, 1000);
 }
+
+// باز کردن لینک تلگرام هنگام کلیک روی دکمه
+communityBox.addEventListener("click", function() {
+    window.open("https://t.me/MobinTapChannel", "_blank");
+});
 
 button.addEventListener("mousedown", handlePress);
 button.addEventListener("mouseup", handleRelease);

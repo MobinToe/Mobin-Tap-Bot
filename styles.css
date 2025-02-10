@@ -17,7 +17,7 @@ body {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     font-weight: bold;
     position: absolute;
-    top: 10%; /* شمارنده کمی بالاتر از وسط */
+    top: 20%; /* شمارنده کمی پایین‌تر قرار می‌گیرد */
     left: 50%;
     transform: translateX(-50%);
 }
@@ -103,7 +103,7 @@ body {
     box-shadow: 0 0 30px rgba(0, 123, 255, 0.7);
     transition: transform 0.1s ease-out;
     position: absolute;
-    top: 90%; /* مستطیل پایین‌تر قرار می‌گیرد */
+    top: 85%; /* مستطیل کمی بالاتر قرار می‌گیرد */
     left: 50%;
     transform: translateX(-50%);
 
@@ -114,4 +114,4 @@ body {
 
 .community-box:active {
     transform: translateX(-50%) scale(0.9);
-        }
+}

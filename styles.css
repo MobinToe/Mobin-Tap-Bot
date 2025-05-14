@@ -1,14 +1,18 @@
 body {
+    font-family: 'Ubuntu', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     margin: 0;
-    font-family: Arial, sans-serif;
     color: white;
     text-align: center;
-    background: linear-gradient(to bottom, #007BFF, #003366);
+    background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1280&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #counter {
@@ -17,14 +21,14 @@ body {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     font-weight: bold;
     position: absolute;
-    top: 20%; /* شمارنده کمی پایین‌تر قرار می‌گیرد */
+    top: 20%;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .planet-container {
     position: absolute;
-    top: 50%; /* سیاره و حلقه در وسط صفحه */
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 260px;
@@ -48,12 +52,11 @@ body {
     cursor: pointer;
     box-shadow: 0 0 30px rgba(0, 123, 255, 0.7);
     transition: transform 0.1s ease-out;
-
     user-select: none;
     outline: none;
     -webkit-tap-highlight-color: transparent;
     position: relative;
-    z-index: 1; /* سیاره زیر آیکون +1 قرار می‌گیرد */
+    z-index: 1;
 }
 
 .ring {
@@ -68,7 +71,7 @@ body {
     opacity: 1;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
     transition: transform 0.2s ease-out;
-    z-index: 0; /* حلقه زیر سیاره قرار می‌گیرد */
+    z-index: 0;
 }
 
 .plus-one {
@@ -79,7 +82,7 @@ body {
     opacity: 1;
     animation: moveUpFade 1s ease-out;
     pointer-events: none;
-    z-index: 2; /* آیکون +1 بالای سیاره قرار می‌گیرد */
+    z-index: 2;
 }
 
 @keyframes moveUpFade {
@@ -87,7 +90,6 @@ body {
     100% { transform: translateY(-40px); opacity: 0; }
 }
 
-/* دکمه Community */
 .community-box {
     width: 320px;
     height: 90px;
@@ -103,10 +105,9 @@ body {
     box-shadow: 0 0 30px rgba(0, 123, 255, 0.7);
     transition: transform 0.1s ease-out;
     position: absolute;
-    top: 85%; /* مستطیل کمی بالاتر قرار می‌گیرد */
+    top: 85%;
     left: 50%;
     transform: translateX(-50%);
-
     user-select: none;
     outline: none;
     -webkit-tap-highlight-color: transparent;
@@ -115,32 +116,3 @@ body {
 .community-box:active {
     transform: translateX(-50%) scale(0.9);
 }
-
-/* دکمه جدید برای کاهش ۱۰۰ کلیک */
-.square-box {
-    width: 320px;
-    height: 90px;
-    background: radial-gradient(circle, #000C1A, #001F3F, #002B5E);
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 0 30px rgba(0, 123, 255, 0.7);
-    transition: transform 0.1s ease-out;
-    position: absolute;
-    top: 70%; /* دکمه زیر سیاره قرار می‌گیرد */
-    left: 50%;
-    transform: translateX(-50%);
-
-    user-select: none;
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.square-box:active {
-    transform: translateX(-50%) scale(0.9);
-    }
